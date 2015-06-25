@@ -19,8 +19,8 @@ public class OperatorFactory {
 			return new Tesco(account);
 		case THREE:
 			return new Three(account);
-		case VODAFONE:
-			return new Vodafone(account);
+//		case VODAFONE:
+//			return new Vodafone(account);
 		default:
 			return null;
 		}

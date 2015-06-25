@@ -4,12 +4,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.codec.binary.Base64;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import android.net.Uri;
-import android.util.Base64;
 
 import com.swift.model.Account;
 import com.swift.tasks.results.Fail;
@@ -43,7 +41,7 @@ public class Tesco extends Operator {
 		super(account);
 
 		final String userPass = this.getAccount().getMobileNumber() + ":" + this.getAccount().getPassword();
-		final String authUserPass = Base64.encodeToString(userPass.getBytes(), Base64.NO_WRAP);
+		final String authUserPass = Base64.encodeBase64String(userPass.getBytes());
 		this.auth = "Basic " + authUserPass;
 	}
 
@@ -86,7 +84,7 @@ public class Tesco extends Operator {
 		manager.setRequestHeader(AUTHORIZATION, this.auth);
 
 		final Map<String, Object> copyFrom = new LinkedHashMap<String, Object>();
-		copyFrom.put(JSON_TEXT, Uri.decode(message));
+		copyFrom.put(JSON_TEXT, uriDecode(message));
 		copyFrom.put(JSON_CONTACTIDS, new JSONArray());
 		copyFrom.put(JSON_GROUPIDS, new JSONArray());
 		copyFrom.put(JSON_MSISDNS, new JSONArray(list));

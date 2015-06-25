@@ -1,17 +1,16 @@
 package com.swift.tasks.results;
 
-import com.swift.R;
 import com.swift.tasks.Status;
 
 public class Fail extends OperationResult {
 
-	public static final OperationResult MESSAGE_FAILED = new Fail(R.string.message_failed_to_send);
-	public static final OperationResult LOGIN_FAILED = new Fail(R.string.login_failed);
-	public static final OperationResult OPERATOR_CHANGED = new Fail(R.string.operator_changed);
-	public static final OperationResult NO_INTERNET_CONNECTION = new Fail(R.string.no_internet_connection);
+	public static final OperationResult MESSAGE_FAILED = new Fail("Message failed to send");
+	public static final OperationResult LOGIN_FAILED = new Fail("Login failed");
+	public static final OperationResult OPERATOR_CHANGED = new Fail("Operator website changed");
+	public static final OperationResult NO_INTERNET_CONNECTION = new Fail("No internet connection");
 
-	private Fail(final int resId) {
-		super(resId, R.color.red, Status.FAILED);
+	private Fail(final String message) {
+		super(message, 0xffce0001, Status.FAILED);
 	}
 
 }

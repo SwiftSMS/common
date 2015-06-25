@@ -1,8 +1,5 @@
 package com.swift.model;
 
-import android.text.InputType;
-
-import com.swift.R;
 
 /**
  * Simple enum to hold the current Network operators ICC will support.
@@ -12,39 +9,28 @@ import com.swift.R;
  */
 public enum Network {
 
-	EMOBILE("eMobile", R.drawable.operator_logo_emobile, InputType.TYPE_CLASS_PHONE),
-	METEOR("Meteor", R.drawable.operator_logo_meteor, InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS),
-	O2("O2 on Three", R.drawable.operator_logo_o3, InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS),
-	TESCO("Tesco", R.drawable.operator_logo_tesco, InputType.TYPE_CLASS_PHONE),
-	THREE("Three", R.drawable.operator_logo_three, InputType.TYPE_CLASS_PHONE),
-	VODAFONE("Vodafone", R.drawable.operator_logo_vodafone, InputType.TYPE_CLASS_PHONE);
+	EMOBILE("eMobile", "/operator_logo_emobile"),
+	METEOR("Meteor", "/operator_logo_meteor"),
+	O2("O2 on Three", "/operator_logo_o3"),
+	TESCO("Tesco", "/operator_logo_tesco"),
+	THREE("Three", "/operator_logo_three");
+//	VODAFONE("Vodafone", "/operator_logo_vodafone");
 
 	private final String network;
-	private int logo;
-	private int inputType;
+	private String logoLocation;
 
-	private Network(final String network, final int logo, final int inputType) {
+	private Network(final String network, final String logoLocation) {
 		this.network = network;
-		this.logo = logo;
-		this.inputType = inputType;
+		this.logoLocation = logoLocation;
 	}
 
 	/**
 	 * This method returns the default logo for the network Operator.
 	 * 
-	 * @return The drawable id of the Operators logo.
+	 * @return The location of the Operators logo.
 	 */
-	public int getLogo() {
-		return this.logo;
-	}
-
-	/**
-	 * This method returns the {@link InputType} that most closely matches the login username for the Operator.
-	 * 
-	 * @return The InputType to be used for the Operators username.
-	 */
-	public int getInputType() {
-		return this.inputType;
+	public String getLogo() {
+		return this.logoLocation;
 	}
 
 	@Override

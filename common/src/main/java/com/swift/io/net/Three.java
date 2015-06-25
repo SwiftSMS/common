@@ -2,8 +2,6 @@ package com.swift.io.net;
 
 import java.util.List;
 
-import android.net.Uri;
-
 import com.swift.model.Account;
 import com.swift.tasks.results.Fail;
 import com.swift.tasks.results.OperationResult;
@@ -77,8 +75,8 @@ public class Three extends Operator {
 		manager.addPostHeader(POST_MESSAGE_TEXT, message);
 
 		for (int i = 0; i < recipients.size(); i++) {
-			final String key = Uri.encode(POST_RECIPIENT_INDIVIDUAL + "[" + i + "]");
-			final String value = Uri.encode(recipients.get(i));
+			final String key = uriEncode(POST_RECIPIENT_INDIVIDUAL + "[" + i + "]");
+			final String value = uriEncode(recipients.get(i));
 			manager.addPostHeader(key, value);
 		}
 

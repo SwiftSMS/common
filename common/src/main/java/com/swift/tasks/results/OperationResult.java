@@ -9,18 +9,18 @@ import com.swift.tasks.Status;
  */
 public abstract class OperationResult {
 
-	private final int stringResource;
+	private final String message;
 	private final Status status;
 	private final int colourResource;
 
-	public OperationResult(final int stringResource, final int colourResource, final Status status) {
-		this.stringResource = stringResource;
+	public OperationResult(final String message, final int colourResource, final Status status) {
+		this.message = message;
 		this.colourResource = colourResource;
 		this.status = status;
 	}
 
-	public int getStringResource() {
-		return this.stringResource;
+	public String getMessage() {
+		return this.message;
 	}
 
 	public Status getStatus() {

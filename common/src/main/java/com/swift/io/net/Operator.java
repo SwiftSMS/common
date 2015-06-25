@@ -3,9 +3,9 @@ package com.swift.io.net;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.content.Context;
-import android.net.Uri;
-import android.webkit.CookieSyncManager;
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.EncoderException;
+import org.apache.commons.codec.net.URLCodec;
 
 import com.swift.model.Account;
 import com.swift.tasks.Status;
@@ -18,6 +18,8 @@ import com.swift.tasks.results.OperationResult;
 public abstract class Operator {
 
 	public static final int DEFAULT_CHAR_LIMIT = 160;
+
+	protected final URLCodec encoder = new URLCodec();
 
 	private final Account account;
 	private int characterLimit = -1;
@@ -39,7 +41,6 @@ public abstract class Operator {
 	 * @return <code>true</code> if the login was successful else <code>false</code>
 	 */
 	public final OperationResult login() {
-		CookieSyncManager.getInstance().sync();
 		try {
 			return this.doLogin();
 		} catch (final NoInternetAccessException e) {
@@ -81,8 +82,8 @@ public abstract class Operator {
 	 */
 	abstract int doGetRemainingSMS();
 
-	public void preSend(final Context context) {
-	}
+//	public void preSend(final Context context) {
+//	}
 
 	/**
 	 * This method is responsible for sending an SMS message through the operators website. This method will perform any
@@ -100,7 +101,7 @@ public abstract class Operator {
 		OperationResult sendStatus = Fail.MESSAGE_FAILED;
 		try {
 			for (final String msgToSend : msgParts) {
-				final String encodedMsg = Uri.encode(msgToSend);
+				final String encodedMsg = uriEncode(msgToSend);
 				sendStatus = this.doSend(list, encodedMsg);
 				if (sendStatus.getStatus() == Status.FAILED) {
 					this.login();
@@ -167,5 +168,25 @@ public abstract class Operator {
 	 */
 	public Account getAccount() {
 		return this.account;
+	}
+
+	protected String uriEncode(final String message) {
+		try {
+			return encoder.encode(message);
+		} catch (EncoderException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	protected String uriDecode(final String message) {
+		try {
+			return encoder.decode(message);
+		} catch (DecoderException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

@@ -1,15 +1,14 @@
 package com.swift.tasks.results;
 
-import com.swift.R;
 import com.swift.tasks.Status;
 
 public class Success extends OperationResult {
 
-	public static final OperationResult MESSAGE_SENT = new Success(R.string.message_sent);
-	public static final OperationResult LOGGED_IN = new Success(R.string.logged_in);
+	public static final OperationResult MESSAGE_SENT = new Success("Message sent!");
+	public static final OperationResult LOGGED_IN = new Success("Login successful");
 
-	private Success(final int messageId) {
-		super(messageId, R.color.green, Status.SUCCESS);
+	private Success(final String message) {
+		super(message, 0xff00e111, Status.SUCCESS);
 	}
 
 }

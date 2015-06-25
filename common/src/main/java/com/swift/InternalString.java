@@ -1,9 +1,5 @@
 package com.swift;
 
-import android.content.ContentProvider;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
 
 /**
  * Internal Strings used in the application that are not applicable to the String.xml resource
@@ -56,11 +52,6 @@ public class InternalString {
 	 * The key used to store the message body when an Intent is sending a message.
 	 */
 	public static final String SMS_BODY = "sms_body";
-
-	/**
-	 * The Uri to query the SMS {@link ContentProvider}s Theads/Conversations.
-	 */
-	public static final Uri SMS_THREADS_CONTENT_URI = Uri.parse("content://sms/conversations");
 
 	/**
 	 * The column name of the senders number in the SMS {@link ContentProvider}s Sent box.
