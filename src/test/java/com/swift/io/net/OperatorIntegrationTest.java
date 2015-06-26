@@ -77,12 +77,25 @@ public class OperatorIntegrationTest {
 
 	@Test
 	public void testTesco() {
-		final Account account = new Account("<USERNAME>", "Tesco", "<PASSWORD>", Network.TESCO);
+		final Account account = new Account(props.getProperty("tesco.username"), "Tesco", props.getProperty("tesco.password"), Network.TESCO);
 		final Operator operator = OperatorFactory.getOperator(account);
 
 		operator.login();
 		operator.getRemainingSMS();
 		final OperationResult result = operator.send(recipients, rand.nextInt(99999) + ": Hello World from Tesco!");
+
+		assertEquals(SUCCESS_MESSAGE, result.getMessage());
+		assertEquals(SUCCESS, result.getStatus());
+	}
+
+	@Test
+	public void testO2() {
+		final Account account = new Account(props.getProperty("o2.username"), "O2", props.getProperty("o2.password"), Network.O2);
+		final Operator operator = OperatorFactory.getOperator(account);
+
+		operator.login();
+		operator.getRemainingSMS();
+		final OperationResult result = operator.send(recipients, rand.nextInt(99999) + ": Hello World from O2!");
 
 		assertEquals(SUCCESS_MESSAGE, result.getMessage());
 		assertEquals(SUCCESS, result.getStatus());
