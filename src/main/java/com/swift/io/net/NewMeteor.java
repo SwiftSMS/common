@@ -21,8 +21,8 @@ public class NewMeteor extends Operator {
 	@Override
 	OperationResult doLogin() {
 		final ConnectionManager manager = new ConnectionManager("https://my.meteor.ie/meteor/transactional/login");
-		manager.addPostHeader("username", this.getAccount().getMobileNumber());
-		manager.addPostHeader("password", this.getAccount().getPassword());
+		manager.addPostHeader("username", uriEncode(this.getAccount().getMobileNumber()));
+		manager.addPostHeader("password", uriEncode(this.getAccount().getPassword()));
 		final String html = manager.connect();
 
 		final boolean isSuccess = html.contains("Logout");

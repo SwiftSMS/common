@@ -7,13 +7,21 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.net.CookieHandler;
+import java.net.CookiePolicy;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import com.swift.io.net.cookies.MyCookieManager;
+
 public class ConnectionManager {
+
+	static {
+		CookieHandler.setDefault(new MyCookieManager(null, CookiePolicy.ACCEPT_ALL));
+	}
 
 	private final boolean doOutput;
 	private final String method;
@@ -58,10 +66,12 @@ public class ConnectionManager {
 			final URL url = new URL(this.webpageUrl);
 			this.requestHeaders = new LinkedHashMap<String, String>();
 			this.requestOutput = new StringBuilder();
+
 			this.connection = (HttpURLConnection) url.openConnection();
-			// this.connection.setChunkedStreamingMode(0);
 			this.connection.setRequestMethod(this.method);
 			this.connection.setDoOutput(this.doOutput);
+//			this.connection.setRequestProperty("Accept-Encoding", "gzip, deflate");
+			this.connection.setUseCaches(false);
 		} catch (final IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -167,6 +177,7 @@ public class ConnectionManager {
 		while ((line = reader.readLine()) != null) {
 			result.append(line);
 		}
+		reader.close();
 		return result.toString();
 	}
 }
