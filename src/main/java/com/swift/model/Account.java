@@ -10,10 +10,14 @@ public class Account {
 
 	private int id;
     private long timeStamp;
-	private final String accountName;
-	private final String password;
-	private final String mobileNumber;
-	private final Network operator;
+	private String accountName;
+	private String password;
+	private String mobileNumber;
+	private Network operator;
+
+	public Account() {
+
+	}
 
 	/**
 	 * 
@@ -65,7 +69,35 @@ public class Account {
         this.timeStamp = timeStamp;
     }
 
-    @Override
+	public void setAccountName(String accountName) {
+		this.accountName = accountName;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+
+	public void setOperator(Network operator) {
+		this.operator = operator;
+	}
+
+	@Override
+	public String toString() {
+		return "Account{" +
+				"id=" + id +
+				", timeStamp=" + timeStamp +
+				", accountName='" + accountName + '\'' +
+				", password='" + password + '\'' +
+				", mobileNumber='" + mobileNumber + '\'' +
+				", operator=" + operator +
+				'}';
+	}
+
+	@Override
     public boolean equals(Object o) {
         if(o instanceof Account)
             return this.id == ((Account) o).getId();

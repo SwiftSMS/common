@@ -12,7 +12,7 @@ import com.swift.tasks.results.Success;
 
 public class Meteor extends Operator {
 
-	private static final String SEND_SUCCESS_TEXT = "sentTrue";
+	private static final String SEND_SUCCESS_TEXT = "showEl(\"sentTrue\")";
 	private static final String LOGIN_SUCCESS_TEXT = "Log Out";
 
 	private static final String HOSTNAME = "https://www.mymeteor.ie/";
@@ -71,6 +71,8 @@ public class Meteor extends Operator {
 
 	@Override
 	OperationResult doSend(final List<String> recipients, final String message) {
+		final int smsBefore = doGetRemainingSMS();
+
 		this.addRecipients(recipients);
 
 		final ConnectionManager sendManager = new ConnectionManager(Meteor.SMS_URL);
@@ -78,7 +80,12 @@ public class Meteor extends Operator {
 		sendManager.addPostHeader(Meteor.POST_MESSAGE_TEXT, message);
 		final boolean isSent = sendManager.connect().contains(Meteor.SEND_SUCCESS_TEXT);
 
-		return isSent ? Success.MESSAGE_SENT : Fail.MESSAGE_FAILED;
+		if (isSent) {
+			final int smsAfter = doGetRemainingSMS();
+			return smsAfter < smsBefore ? Success.MESSAGE_SENT : Fail.MESSAGE_FAILED;
+		}
+
+		return Fail.MESSAGE_FAILED;
 	}
 
 	private void addRecipients(final List<String> recipients) {
