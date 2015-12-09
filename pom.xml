@@ -9,6 +9,10 @@
     <name>Common library for SwiftSMS</name>
     <description>Contains reusable platform independant code for all SwiftSMS client applications.</description>
 
+    <scm>
+        <developerConnection>scm:git:https://github.com/SwiftSMS/common.git</developerConnection>
+    </scm>
+
     <dependencies>
         <dependency>
             <groupId>org.json</groupId>
@@ -28,6 +32,14 @@
     </dependencies>
 
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+            </plugin>
+        </plugins>
+
         <pluginManagement>
             <plugins>
                 <plugin>
