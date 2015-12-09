@@ -18,7 +18,7 @@ import com.swift.model.Network;
 import com.swift.tasks.Status;
 import com.swift.tasks.results.OperationResult;
 
-public class OperatorIntegrationTest {
+public class OperatorIT {
 
 	private static final Status SUCCESS = Status.SUCCESS;
 	private static final String SUCCESS_MESSAGE = "Message sent!";
