@@ -105,6 +105,7 @@
 //
 //	@Override
 //	public void preSend(final Context context) {
+//		// This should be updated to recieve no arguments and return an image (possibly as a byte[])
 //		this.context = context;
 //		this.handler = new Handler(context.getMainLooper());
 //		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
