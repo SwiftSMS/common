@@ -11,7 +11,7 @@ public class HTMLParser {
 	 *            A unique String that occurs directly before the sought text.
 	 * @param postfix
 	 *            The String that occurs directly after the sought text.
-	 * @return The String between the pre & post fix.
+	 * @return The String between the pre &amp; post fix.
 	 */
 	public static String parseHtml(final String html, final String prefix, final String postfix) {
 		final int startPos = html.indexOf(prefix) + prefix.length();

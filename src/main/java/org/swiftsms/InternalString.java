@@ -54,29 +54,9 @@ public class InternalString {
 	public static final String SMS_BODY = "sms_body";
 
 	/**
-	 * The column name of the senders number in the SMS {@link ContentProvider}s Sent box.
-	 */
-	public static final String SMS_ADDRESS = "address";
-
-	/**
-	 * The column name for the sent date in the SMS {@link ContentProvider}s Sent box.
-	 */
-	public static final String SMS_DATE = "date";
-
-	/**
-	 * The column name of the ID number of an SMS thread in the SMS {@link ContentProvider}s conversations box.
-	 */
-	public static final String THREAD_ID = "thread_id";
-
-	/**
 	 * A ': ' character
 	 */
 	public static final String COLON_SPACE = ": ";
-
-	/**
-	 * This is the SMS Content Provider {@link Uri} of the SMS sentbox.
-	 */
-	public static final String SMS_PROVIDER_SENTBOX_URI = "content://sms/sent";
 
 	/**
 	 * This is the key used to store the receiver of an SMS message in the SMS Content Provider.
@@ -113,8 +93,4 @@ public class InternalString {
 	 */
 	public static final String LOG_TAG = "com.swift.log";
 
-	/**
-	 * Key used to pass an operator object in an {@link Intent}'s {@link Bundle}.
-	 */
-	public static final String OPERATOR = "network_operator";
 }

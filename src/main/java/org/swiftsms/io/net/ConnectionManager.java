@@ -33,7 +33,7 @@ public class ConnectionManager {
 
 	/**
 	 * Create a new ConnectionManager with the settings provided to open a connection to the URL provided using the
-	 * {@link HttpURLConnection} APIs. <br />
+	 * {@link HttpURLConnection} APIs.
 	 * 
 	 * @param webpageUrl
 	 *            The URL of the webpage to connect to.
@@ -51,7 +51,7 @@ public class ConnectionManager {
 
 	/**
 	 * Create a new ConnectionManager with default settings to open a connection to the URL provided using the
-	 * {@link HttpURLConnection} APIs. <br />
+	 * {@link HttpURLConnection} APIs. <br>
 	 * By default uses a POST method and requires output to be made.
 	 * 
 	 * @param webpageUrl

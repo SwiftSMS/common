@@ -88,7 +88,7 @@ public abstract class Operator {
 	/**
 	 * This method is responsible for sending an SMS message through the operators website. This method will perform any
 	 * non-network-specific send actions. Each sub-class of {@link Operator} will implement the specific send algorithm in the
-	 * {@link #doSend(String, String)} method.
+	 * {@link #doSend(List, String)} method.
 	 * 
 	 * @param list
 	 *            A list of phone numbers the message will be sent to.

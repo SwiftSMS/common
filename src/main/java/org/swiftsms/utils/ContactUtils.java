@@ -32,11 +32,12 @@ public class ContactUtils {
 
 	/**
 	 * Method to break a {@link List} into multiple smaller lists.
-	 * 
+	 *
 	 * @param list
 	 *            The larger list to be broken down.
 	 * @param length
 	 *            The max length of a returned {@link List}.
+	 * @param <T> The type of elements which the list contains.
 	 * @return A {@link List} containing the smaller broken down lists.
 	 */
 	public static <T> List<List<T>> chopped(final List<T> list, final int length) {
