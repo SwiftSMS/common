@@ -3,14 +3,14 @@
 
     <groupId>org.swiftsms</groupId>
     <artifactId>common</artifactId>
-    <version>0.0.33-SNAPSHOT</version>
+    <version>0.0.33</version>
 
     <name>Common library for SwiftSMS</name>
     <description>Contains reusable platform independant code for all SwiftSMS client applications.</description>
 
     <scm>
         <developerConnection>scm:git:https://github.com/SwiftSMS/common.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>common-0.0.33</tag>
     </scm>
 
     <distributionManagement>
