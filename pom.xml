@@ -9,12 +9,16 @@
     <description>Contains reusable platform independant code for all SwiftSMS client applications.</description>
 
     <scm>
-        <!--
-        <developerConnection>scm:git:git@github.com:SwiftSMS/common.git</developerConnection>
-        -->
         <developerConnection>scm:git:https://github.com/SwiftSMS/common.git</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <dependencies>
         <dependency>
@@ -50,8 +54,8 @@
                         <artifactId>maven-compiler-plugin</artifactId>
                         <version>3.1</version>
                         <configuration>
-                        <source>1.7</source>
-                        <target>1.7</target>
+                        <source>1.8</source>
+                        <target>1.8</target>
                     </configuration>
                 </plugin>
             </plugins>
