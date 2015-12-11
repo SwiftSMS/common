@@ -10,6 +10,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/SwiftSMS/common.git</developerConnection>
+        <url>scm:git:https://github.com/SwiftSMS/common.git</url>
         <tag>HEAD</tag>
     </scm>
 
