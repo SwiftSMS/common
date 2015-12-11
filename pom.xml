@@ -9,9 +9,10 @@
     <description>Contains reusable platform independant code for all SwiftSMS client applications.</description>
 
     <scm>
-        <developerConnection>scm:git:https://github.com/SwiftSMS/common.git</developerConnection>
-        <url>scm:git:https://github.com/SwiftSMS/common.git</url>
         <tag>HEAD</tag>
+        <url>https://github.com/SwiftSMS/common.git</url>
+        <connection>scm:git:https://github.com/SwiftSMS/common.git</connection>
+        <developerConnection>scm:git:https://github.com/SwiftSMS/common.git</developerConnection>
     </scm>
 
     <distributionManagement>
