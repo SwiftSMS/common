@@ -7,6 +7,7 @@
 
     <name>Common library for SwiftSMS</name>
     <description>Contains reusable platform independant code for all SwiftSMS client applications.</description>
+    <url>https://github.com/SwiftSMS/common</url>
 
     <scm>
         <tag>HEAD</tag>
@@ -14,6 +15,22 @@
         <connection>scm:git:https://github.com/SwiftSMS/common.git</connection>
         <developerConnection>scm:git:https://github.com/SwiftSMS/common.git</developerConnection>
     </scm>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Seán Dunne</name>
+            <email>sean.dunne1988@gmail.com</email>
+            <organization>SwiftSMS</organization>
+            <organizationUrl>http://www.swiftsms.org/</organizationUrl>
+        </developer>
+    </developers>
 
     <distributionManagement>
         <snapshotRepository>
@@ -51,6 +68,20 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.5.3</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
 
